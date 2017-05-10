@@ -1,0 +1,90 @@
+package com.github.ekroes.crowflies.model;
+
+//Entity model; representing an album
+
+//@author Elizabeth
+
+public class Album {
+
+	private Integer albumId = null;
+	private String name = "";
+	private String releaseDate = "";
+	private Integer artistId = null;
+
+	public Album(String name) {
+		this.name = name;
+
+	}
+
+	public Album(String name, String releaseDate) {
+		super();
+		this.name = name;
+		this.releaseDate = releaseDate;
+	}
+
+	public Album(Integer albumId, Integer artistId) {
+		super();
+		this.albumId = albumId;
+		this.artistId = artistId;
+	}
+
+	public Album(String name, String releaseDate, Integer artistId) {
+
+		this.name = name;
+		this.releaseDate = releaseDate;
+		this.artistId = artistId;
+	}
+
+	public Album(Integer albumId, String name, String releaseDate) {
+
+		this.albumId = albumId;
+		this.name = name;
+		this.releaseDate = releaseDate;
+
+	}
+
+	public Album(Integer albumId, String name, String releaseDate, Integer artistId) {
+
+		this.albumId = albumId;
+		this.name = name;
+		this.releaseDate = releaseDate;
+		this.artistId = artistId;
+	}
+
+	public Integer getAlbumId() {
+		return albumId;
+	}
+
+
+	public void setAlbumId(Integer albumId) {
+		this.albumId = albumId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
+
+	}
+
+	public Integer getArtistId() {
+		return artistId;
+	}
+
+	public void setArtistId(Integer artistId) {
+		this.artistId = artistId;
+		
+	}
+
+	
+}
