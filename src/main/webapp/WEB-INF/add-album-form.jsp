@@ -22,15 +22,15 @@
 		
 		<form action="/crowflies/album" method = "POST">
 			<input type = "hidden" name = "command" value ="addAlbum"/>
-			<input type = "hidden" name = Artist_ID value = ${artistId.getArtistId() }/>			
+			<input type = "hidden" name = "Artist_ID" value = "${artistId}"/>			
 			<table>
 			<tbody>
 			<tr>
-			<td><lable>Album Name:</lable></td>
+			<td><label>Album Name:</label></td>
 			<td><input type = "text" name = "name"/>
 			</tr>
 			<tr>
-			<td><lable>Year Released:</lable></td>
+			<td><label>Year Released:</label></td>
 			<td><input type = "text" name = "releaseDate"/>
 			</tr>
 			<tr>
@@ -43,7 +43,7 @@
 		
 		<div style = "clear: both;"></div>
 		<p>
-			<a href = "/crowflies/album?command=listAlbums&Artist_ID=${artistId.artistId}">Back to List</a></p>
+			<a href = "/crowflies/album?command=listAlbums&Artist_ID=${artistId}">Back to List</a></p>
 	</div>
 
 </body>

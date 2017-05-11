@@ -81,7 +81,7 @@ public class AlbumDAO {
 	}
 
 	public void insertAlbum(Album newAlbumInfo) throws SQLException {
-		String sql = "INSERT INTO album (name, yearReleased) VALUES (?,?) WHERE Artist_ID = ?";
+		String sql = "INSERT INTO album (Album_Name, Year_Released, Artist_ID) VALUES (?,?,?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet res = null;
@@ -94,15 +94,15 @@ public class AlbumDAO {
 			pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, newAlbumInfo.getName());
 			pstmt.setString(2, newAlbumInfo.getReleaseDate());
-			//pstmt.setInt(3, newAlbumInfo.getArtistId());
+			pstmt.setInt(3, newAlbumInfo.getArtistId());
 			pstmt.executeUpdate();
 			res = pstmt.getGeneratedKeys();
 
 			if (res.next()) {
 				albumId = res.getInt(1);
-				artistId = res.getInt(3);
+				//artistId = res.getInt(artistId);
 				newAlbumInfo.setAlbumId(albumId);
-				newAlbumInfo.setArtistId(artistId);
+				//newAlbumInfo.setArtistId(artistId);
 			}
 		} finally {
 			Driver.closeConnection(conn);

@@ -21,7 +21,7 @@
 	<div id = "container">
 	<div id = "content">
 		<input type = "button" value = "Add a New Album"
-			onclick = "window.location.href = '/crowflies/album?command=addAlbumForm&Artist_ID= ${artistId}'; return false;"
+			onclick = "window.location.href = '/crowflies/album?command=addAlbumForm&Artist_ID=${artistId}'; return false;"
 			class="add-album-button"/>
 			
 			<table>

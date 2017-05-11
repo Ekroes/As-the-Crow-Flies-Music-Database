@@ -121,7 +121,7 @@ public class AlbumControllerServlet extends HttpServlet {
 		String albumName = request.getParameter("name");
 		String releaseDate = request.getParameter("releaseDate");
 
-		if(albumName == null || "".equals(albumName) || releaseDate == null || "".equals(releaseDate)){
+		if (albumName == null || "".equals(albumName) || releaseDate == null || "".equals(releaseDate)) {
 			loadAlbumInfo(request, response);
 		}
 
@@ -132,37 +132,38 @@ public class AlbumControllerServlet extends HttpServlet {
 
 	}
 
-	private void addAlbum(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+	private void addAlbum(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
 		String albumName = request.getParameter("name");
 		String releaseDate = request.getParameter("releaseDate");
 		String artistIds = request.getParameter("Artist_ID");
+
 		Integer artistId = Integer.parseInt(artistIds);
-		
-		if(albumName == null || "".equals(albumName) || releaseDate == null || "".equals(releaseDate)){
+
+		if (albumName == null || "".equals(albumName) || releaseDate == null || "".equals(releaseDate)) {
 			showAddForm(request, response);
 		}
-		
+
 		Album newAlbumInfo = new Album(albumName, releaseDate, artistId);
 		AlbumDAO dao = new AlbumDAO();
 		dao.insertAlbum(newAlbumInfo);
-		
+
 		listAlbums(request, response);
 	}
 
 	private void listAlbums(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
 		String artistId = request.getParameter("Artist_ID");
-		
-		
+
 		AlbumDAO dao = new AlbumDAO();
 		ArtistDAO artDAO = new ArtistDAO();
 		List<Album> albums = dao.listAlbums(artistId);
 		Artist artistName = artDAO.getArtistName(artistId);
-		
+
 		request.setAttribute("artistId", artistId);
-		
+
 		request.setAttribute("artistName", artistName);
-		
+
 		request.setAttribute("listAlbums", albums);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/list-albums.jsp");
 		dispatcher.forward(request, response);
@@ -189,9 +190,9 @@ public class AlbumControllerServlet extends HttpServlet {
 
 	private void showAddForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		String artistId = request.getParameter("Artist_ID");
-//		request.setAttribute("artistId", artistId);
-		
+		String artistId = request.getParameter("Artist_ID");
+		request.setAttribute("artistId", artistId);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/add-album-form.jsp");
 		dispatcher.forward(request, response);
 
