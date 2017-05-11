@@ -2,10 +2,10 @@
 
 <html>
 <head>
-
+<title>Delete Artist</title>
 </head>
 
-<title>Delete Artist</title>
+
 
 <link type="text/css" rel="stylesheet" href="CSS/style.css" />
 <link type="text/css" rel="stylesheet"

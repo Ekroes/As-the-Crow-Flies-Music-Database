@@ -107,7 +107,8 @@ public class AlbumControllerServlet extends HttpServlet {
 
 	private void deleteAlbum(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
-		String albumId = request.getParameter("albumId");
+		String albumId = request.getParameter("Album_ID");
+		System.out.println(albumId);
 		AlbumDAO dao = new AlbumDAO();
 		dao.deleteAlbum(albumId);
 		listAlbums(request, response);
@@ -185,8 +186,10 @@ public class AlbumControllerServlet extends HttpServlet {
 	private void confirmDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String albumId = request.getParameter("Album_ID");
+		String artistId = request.getParameter("Artist_ID");
 		request.setAttribute("albumId", albumId);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirm-album-delete.jsp");
+		request.setAttribute("artistId", artistId);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirm-delete-album.jsp");
 		dispatcher.forward(request, response);
 	}
 

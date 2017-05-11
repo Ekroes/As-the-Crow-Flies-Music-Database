@@ -22,6 +22,7 @@
 
 		<form action="crowflies/users" method="POST">
 			<input type="hidden" name="command" value="deleteUser" /> 
+			<input type ="hidden" name ="User_ID" value = "${userId}"/>
 			<input type="submit" value="Yes" class="save" />
 
 		</form>
