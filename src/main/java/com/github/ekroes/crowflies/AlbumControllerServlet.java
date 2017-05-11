@@ -184,6 +184,8 @@ public class AlbumControllerServlet extends HttpServlet {
 
 	private void confirmDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String albumId = request.getParameter("Album_ID");
+		request.setAttribute("albumId", albumId);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirm-album-delete.jsp");
 		dispatcher.forward(request, response);
 	}

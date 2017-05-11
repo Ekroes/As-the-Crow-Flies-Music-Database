@@ -172,6 +172,8 @@ public class ArtistControllerServlet extends HttpServlet {
 
 	private void confirmDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String artistId = request.getParameter("Artist_ID");
+		request.setAttribute("artistId", artistId);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirm-delete-artist.jsp");
 		dispatcher.forward(request, response);
 

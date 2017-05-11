@@ -23,7 +23,7 @@
 
 		<form action="/crowflies/artist" method="POST">
 			<input type="hidden" name="command" value="deleteArtist" /> 
-			<input type = "hidden" name = "Artist_ID" value ="${theArtist.getId()}"/>
+			<input type = "hidden" name = "Artist_ID" value ="${artistId}"/>
 			<input type="submit" value="Yes" class="save" />
 
 		</form>

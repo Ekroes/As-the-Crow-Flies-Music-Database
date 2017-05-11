@@ -86,7 +86,6 @@ public class AlbumDAO {
 		PreparedStatement pstmt = null;
 		ResultSet res = null;
 		int albumId = 0;
-		int artistId = 0;
 
 		DataSource dataSource = Driver.getDataSource();
 		try {
@@ -100,9 +99,8 @@ public class AlbumDAO {
 
 			if (res.next()) {
 				albumId = res.getInt(1);
-				//artistId = res.getInt(artistId);
 				newAlbumInfo.setAlbumId(albumId);
-				//newAlbumInfo.setArtistId(artistId);
+
 			}
 		} finally {
 			Driver.closeConnection(conn);
@@ -135,23 +133,23 @@ public class AlbumDAO {
 	}
 
 	public void deleteAlbum(String albumId) throws SQLException {
-		String sql ="DELETE FROM album WHERE Album_Id = ?";
+		String sql = "DELETE FROM album WHERE Album_ID = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int id;
-		
+
 		DataSource dataSource = Driver.getDataSource();
-		try{
+		try {
 			id = Integer.parseInt(albumId);
 			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
-		}finally{
+		} finally {
 			Driver.closeConnection(conn);
 			Driver.closePreparedStatement(pstmt);
 		}
-		
+
 	}
 
 }
