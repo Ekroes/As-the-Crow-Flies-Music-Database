@@ -108,9 +108,11 @@ public class AlbumControllerServlet extends HttpServlet {
 	private void deleteAlbum(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
 		String albumId = request.getParameter("Album_ID");
+		String artistId = request.getParameter("Artist_ID");
 		System.out.println(albumId);
+		System.out.println(artistId);
 		AlbumDAO dao = new AlbumDAO();
-		dao.deleteAlbum(albumId);
+		dao.deleteAlbum(albumId, artistId);
 		listAlbums(request, response);
 
 	}
