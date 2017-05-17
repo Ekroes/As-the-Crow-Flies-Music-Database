@@ -16,7 +16,8 @@
 		<h2>Please Log In</h2>
 		
 		<form action = "crowflies/login" method = "POST">
-			<input type = "hidden" name = "command" value = "logInAttempt"/>
+			<input type = "hidden" name = "command" value = "validateLogIn"/>
+			
 		
 		
 			<table>
@@ -31,7 +32,7 @@
 				</tr>
 				<tr>
 				<td><label></label></td>
-				<td><input type = "submit" value = "Enter"/>
+				<td><input type = "submit" value = "Enter" class = "save"/>
 				</tr>
 		
 			</tbody>

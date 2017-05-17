@@ -132,21 +132,18 @@ public class AlbumDAO {
 
 	}
 
-	public void deleteAlbum(String albumId, String artistId) throws SQLException {
-		String sql = "DELETE FROM album WHERE Album_ID = ? AND Artist_ID = ?";
+	public void deleteAlbum(String albumId) throws SQLException {
+		String sql = "DELETE FROM album WHERE Album_ID = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int theAlbumId;
-		int theArtistId;
 
 		DataSource dataSource = Driver.getDataSource();
 		try {
 			theAlbumId = Integer.parseInt(albumId);
-			theArtistId = Integer.parseInt(artistId);
 			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, theAlbumId);
-			pstmt.setInt(2, theArtistId);
 			pstmt.executeUpdate();
 		} finally {
 			Driver.closeConnection(conn);

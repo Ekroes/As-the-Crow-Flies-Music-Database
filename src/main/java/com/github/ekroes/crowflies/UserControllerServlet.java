@@ -68,9 +68,9 @@ public class UserControllerServlet extends HttpServlet {
 			showAddForm(request, response);
 		}
 
-//		if (theCommand.equals("logIn")) {
-//			showLoginForm(request, response);
-//		}
+	if (theCommand.equals("logIn")) {
+			showLoginForm(request, response);
+		}
 
 	}
 

@@ -24,6 +24,7 @@
 		<form action = "/crowflies/album" method = "POST">
 			<input type = "hidden" name = "command" value = "deleteAlbum"/>
 			<input type = "hidden" name = "Album_ID" value = "${albumId}"/>
+			<input type = "hidden" name = "Artist_ID" value = "${artistId}">
 			<input type = "submit" value = "Yes" class = "save" />
 		
 		</form>

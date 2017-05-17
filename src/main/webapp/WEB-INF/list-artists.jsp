@@ -6,7 +6,7 @@
 <head>
 <title>Artist Tracker App</title>
 
-<link type="text/CSS" rel="stylesheet" href="CSS/style.css">
+<link type="text/CSS" rel="stylesheet" href="CSS/general-style.css">
 
 </head>
 
