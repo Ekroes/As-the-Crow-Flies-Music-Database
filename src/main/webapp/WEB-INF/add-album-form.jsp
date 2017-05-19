@@ -7,7 +7,7 @@
 
 <title>Add New Album</title>
 
-<link type ="text/css" rel = "stylesheet" href = "CSS/style.css"/>
+<link type ="text/css" rel = "stylesheet" href = "CSS/general-style.css"/>
 <link type = "text/css" rel = "stylesheet" href = "CSS/add-album-style.css"/>
 
 <body>

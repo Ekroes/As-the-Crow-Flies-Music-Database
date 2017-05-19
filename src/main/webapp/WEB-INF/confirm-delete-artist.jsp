@@ -7,9 +7,8 @@
 
 
 
-<link type="text/css" rel="stylesheet" href="CSS/style.css" />
-<link type="text/css" rel="stylesheet"
-	href="CSS/delete-artist-style.css" />
+<link type="text/css" rel="stylesheet" href="CSS/general-style.css" />
+<link type="text/css" rel="stylesheet" href="CSS/delete-artist-style.css" />
 
 <body>
 	<div id="wrapper">

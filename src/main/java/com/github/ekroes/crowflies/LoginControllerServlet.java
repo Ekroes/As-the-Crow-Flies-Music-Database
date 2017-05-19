@@ -79,8 +79,8 @@ public class LoginControllerServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("theUser", validUser);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/list-artists.jsp");
-			dispatcher.forward(request, response);
+			response.sendRedirect("/artist");
+			
 //		}else {
 //			try{
 //				LoginDAO.incrementLoginAttempts(userId);

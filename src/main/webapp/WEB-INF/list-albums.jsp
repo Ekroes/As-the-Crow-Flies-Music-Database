@@ -6,7 +6,7 @@
 <head>
 <title>Album Tracker App</title>
 
-<link type ="text/CSS" rel="stylesheet" href="CSS/style.css">
+<link type ="text/CSS" rel="stylesheet" href="CSS/general-style.css">
 </head>
 
 <body>
@@ -28,6 +28,7 @@
 				<tr>
 					<th>Album Name</th>
 					<th>Year Released</th>
+					<th>Action</th>
 				</tr>
 				<c:forEach var = "tempAlbum" items="${listAlbums}">
 				

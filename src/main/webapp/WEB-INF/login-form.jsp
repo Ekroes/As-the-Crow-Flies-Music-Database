@@ -5,6 +5,8 @@
 <title>Login Form</title>
 </head>
 
+<link type = "text/css" rel = "stylesheet" href = "CSS/general-style.css"/>
+
 <body>
 	<div id = "wrapper">
 		<div id ="header">
@@ -15,9 +17,10 @@
 	<div id = "container">
 		<h2>Please Log In</h2>
 		
-		<form action = "crowflies/login" method = "POST">
+		<form action = "/crowflies/login" method = "POST">
 			<input type = "hidden" name = "command" value = "validateLogIn"/>
-			
+			<input type = "hidden" name = "userName" value = "${userName}"/>
+			<input type = "hidden" name ="password" value = "${password}"/>
 		
 		
 			<table>
@@ -28,7 +31,7 @@
 				</tr>
 				<tr>
 				<td><label>Password:</label></td>
-				<td><input type ="text" name = "password"/>
+				<td><input type ="password" name = "password"/>
 				</tr>
 				<tr>
 				<td><label></label></td>

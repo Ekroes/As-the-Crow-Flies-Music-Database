@@ -177,6 +177,7 @@ public class AlbumControllerServlet extends HttpServlet {
 		AlbumDAO dao = new AlbumDAO();
 		Album album = dao.getOneAlbum(albumId, artistId);
 		request.setAttribute("theAlbum", album);
+		request.setAttribute("artistId", artistId);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/update-album-form.jsp");
 		dispatcher.forward(request, response);
 

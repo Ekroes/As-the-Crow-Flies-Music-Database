@@ -8,7 +8,7 @@
 </head>
 
 <title>Add New Employee</title>
-<link type = "text/css" rel = "stylesheet" href = "CSS/style.css"/>
+<link type = "text/css" rel = "stylesheet" href = "CSS/general-style.css"/>
 <link type = "text/css" rel = "stylesheet" href = "CSS/add-employee-style.css"/>
 <body>
 	<div id = "wrapper">

@@ -7,7 +7,7 @@
 
 <title>Delete User</title>
 
-<link type="text/css" rel="stylesheet" href="CSS/style.css" />
+<link type="text/css" rel="stylesheet" href="CSS/general-style.css" />
 <link type="text/css" rel="stylesheet" href="CSS/delete-user-style.css" />
 
 <body>
