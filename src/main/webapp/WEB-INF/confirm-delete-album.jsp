@@ -8,7 +8,7 @@
 </head>
 
 <link type = "text/css" rel = "stylesheet" href = "CSS/general-style.css"/>
-<link type = "text/css" rel = "stylesheet" href ="CSS/delete-album-style.css"/>
+<link type = "text/css" rel = "stylesheet" href ="CSS/add-album-style.css"/>
 
 <body>
 	<div id = "wrapper">

@@ -37,6 +37,13 @@ tr:nth-child(odd){background: #A9AFBA}
 	border: 1px solid #666;
 	border-radius: 2px;
 	padding: 5px;
+	font-size:15px;
+	font-weight: bold;
+	width: 170px;
+	padding: 5px 20px;
+	
+	margin-bottom: 20px;
+	background: #EFEFEF;
 	
 }
 

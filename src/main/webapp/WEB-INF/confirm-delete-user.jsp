@@ -8,7 +8,7 @@
 <title>Delete User</title>
 
 <link type="text/css" rel="stylesheet" href="CSS/general-style.css" />
-<link type="text/css" rel="stylesheet" href="CSS/delete-user-style.css" />
+<link type="text/css" rel="stylesheet" href="CSS/add-user-style.css" />
 
 <body>
 	<div id="wrapper">

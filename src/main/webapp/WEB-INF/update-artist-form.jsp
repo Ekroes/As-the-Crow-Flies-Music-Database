@@ -10,7 +10,7 @@
 
 <title>Update Artist</title>
 <link type = "text/css" rel = "stylesheet" href = "CSS/general-style.css"/>
-<link type = "text/css" rel = "stylesheet" href = "CSS/add-employee-style.css"/>
+<link type = "text/css" rel = "stylesheet" href = "CSS/add-artist-style.css"/>
 <body>
 	<div id = "wrapper">
 		<div id = "header">

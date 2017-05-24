@@ -13,6 +13,11 @@
 	<div id = "container">
 	<div id = "content">
 	
+		<input type="button" value="Create new Employee"
+				onclick="window.location.href = '/crowflies/users?command=addUserForm'; return false;"
+				class="add-user-button" />
+				<br><br>
+	
 		<a href = "/crowflies/users?command=logIn">Log In</a>
 		
 		<br><br>
