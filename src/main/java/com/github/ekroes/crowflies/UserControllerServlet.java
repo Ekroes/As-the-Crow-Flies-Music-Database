@@ -25,11 +25,7 @@ import com.github.ekroes.crowflies.model.User;
 public class UserControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void init() throws ServletException {
-		super.init();
-
-	}
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -68,7 +64,7 @@ public class UserControllerServlet extends HttpServlet {
 			showAddForm(request, response);
 		}
 
-	if (theCommand.equals("logIn")) {
+		if (theCommand.equals("logIn")) {
 			showLoginForm(request, response);
 		}
 

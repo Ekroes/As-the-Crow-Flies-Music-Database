@@ -21,10 +21,7 @@ import com.mysql.cj.api.log.Log;
 public class LoginControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void init() throws ServletException {
-		super.init();
-	}
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse

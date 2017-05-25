@@ -14,16 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.github.ekroes.crowflies.database.ArtistDAO;
 import com.github.ekroes.crowflies.model.Artist;
 
+import util.Validation;
+
 /**
  * Servlet implementation class ArtistControllerServlet
  */
 public class ArtistControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void init() throws ServletException {
-		super.init();
-	}
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -37,7 +36,7 @@ public class ArtistControllerServlet extends HttpServlet {
 			theCommand = "artistList";
 		}
 
-		if (theCommand.equals("artistList")) {
+		if ("artistList".equals(theCommand)) {
 			try {
 				listArtists(request, response);
 			} catch (SQLException e) {
@@ -45,7 +44,7 @@ public class ArtistControllerServlet extends HttpServlet {
 			}
 		}
 
-		if (theCommand.equals("loadArtist")) {
+		if ("loadArtist".equals(theCommand)) {
 			try {
 				loadArtistInfo(request, response);
 			} catch (SQLException e) {
@@ -53,16 +52,12 @@ public class ArtistControllerServlet extends HttpServlet {
 			}
 		}
 
-		if (theCommand.equals("addArtistForm")) {
-
+		if ("addArtistForm".equals(theCommand)) {
 			showAddForm(request, response);
-
 		}
 
-		if (theCommand.equals("confirmDelete")) {
-
+		if ("confirmDelete".equals(theCommand)) {
 			confirmDelete(request, response);
-
 		}
 	}
 
@@ -78,7 +73,7 @@ public class ArtistControllerServlet extends HttpServlet {
 			theCommand = "artistList";
 		}
 
-		if (theCommand.equals("addArtist")) {
+		if ("addArtist".equals(theCommand)) {
 			try {
 				addArtist(request, response);
 			} catch (SQLException e) {
@@ -86,14 +81,14 @@ public class ArtistControllerServlet extends HttpServlet {
 			}
 		}
 
-		if (theCommand.equals("updateArtist")) {
+		if ("updateArtist".equals(theCommand)) {
 			try {
 				updateArtist(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		if (theCommand.equals("deleteArtist")) {
+		if ("deleteArtist".equals(theCommand)) {
 			try {
 				deleteArtist(request, response);
 			} catch (SQLException e) {
@@ -109,7 +104,6 @@ public class ArtistControllerServlet extends HttpServlet {
 		request.setAttribute("theArtist", artistId);
 		dao.deleteArtist(artistId);
 		listArtists(request, response);
-
 	}
 
 	private void updateArtist(HttpServletRequest request, HttpServletResponse response)
@@ -119,7 +113,7 @@ public class ArtistControllerServlet extends HttpServlet {
 		String careerStart = request.getParameter("start");
 		String careerEnd = request.getParameter("end");
 
-		if (artistName == null || "".equals(artistName) || careerStart == null || "".equals(careerStart)) {
+		if (Validation.isNullOrEmpty(artistName) || Validation.isNullOrEmpty(careerStart)) {
 			loadArtistInfo(request, response);
 		}
 
@@ -127,7 +121,6 @@ public class ArtistControllerServlet extends HttpServlet {
 		ArtistDAO dao = new ArtistDAO();
 		dao.updateArtist(theArtist);
 		listArtists(request, response);
-
 	}
 
 	private void addArtist(HttpServletRequest request, HttpServletResponse response)
@@ -135,7 +128,7 @@ public class ArtistControllerServlet extends HttpServlet {
 		String artistName = request.getParameter("name");
 		String careerStart = request.getParameter("start");
 		String careerEnd = request.getParameter("end");
-		if (artistName == null || "".equals(artistName) || careerStart == null || "".equals(careerStart)) {
+		if (Validation.isNullOrEmpty(artistName) || Validation.isNullOrEmpty(careerStart)) {
 			// out.print("Please fill in the fields appropriately");
 			showAddForm(request, response);
 		}
@@ -145,7 +138,6 @@ public class ArtistControllerServlet extends HttpServlet {
 		dao.insertArtist(anArtist);
 
 		listArtists(request, response);
-
 	}
 
 	private void listArtists(HttpServletRequest request, HttpServletResponse response)
@@ -156,12 +148,10 @@ public class ArtistControllerServlet extends HttpServlet {
 		request.setAttribute("artistList", artists);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/list-artists.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 	private void loadArtistInfo(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
-		// TODO Auto-generated method stub
 		String artistId = request.getParameter("Artist_ID");
 		ArtistDAO dao = new ArtistDAO();
 		Artist artist = dao.getOneArtist(artistId);
@@ -176,14 +166,12 @@ public class ArtistControllerServlet extends HttpServlet {
 		request.setAttribute("artistId", artistId);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirm-delete-artist.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 	private void showAddForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/add-artist-form.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 }

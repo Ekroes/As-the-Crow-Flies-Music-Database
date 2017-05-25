@@ -27,11 +27,8 @@ public class LoginDAO {
 			pstmt.setString(1, userName);
 			pstmt.setString(2, password);
 			res = pstmt.executeQuery();
-			if(res.next()){
-				return true;
-			}else{
-				return false;
-			}
+			
+			return res.next();
 		}finally{
 			Driver.closeConnection(conn);
 			Driver.closePreparedStatement(pstmt);

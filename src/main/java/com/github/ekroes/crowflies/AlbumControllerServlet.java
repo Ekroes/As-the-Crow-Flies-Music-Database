@@ -15,16 +15,15 @@ import com.github.ekroes.crowflies.database.ArtistDAO;
 import com.github.ekroes.crowflies.model.Album;
 import com.github.ekroes.crowflies.model.Artist;
 
+import util.Validation;
+
 /**
  * Servlet implementation class AlbumControllerServlet
  */
 public class AlbumControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void init() throws ServletException {
-		super.init();
-	}
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -38,7 +37,7 @@ public class AlbumControllerServlet extends HttpServlet {
 			theCommand = "listAlbums";
 		}
 
-		if (theCommand.equals("listAlbums")) {
+		if ("listAlbums".equals(theCommand)) {
 			try {
 				listAlbums(request, response);
 			} catch (SQLException e) {
@@ -46,9 +45,8 @@ public class AlbumControllerServlet extends HttpServlet {
 
 			}
 		}
-		if (theCommand.equals("loadAlbum"))
 
-		{
+		if ("loadAlbum".equals(theCommand)) {
 			try {
 				loadAlbumInfo(request, response);
 			} catch (SQLException e) {
@@ -57,14 +55,12 @@ public class AlbumControllerServlet extends HttpServlet {
 
 		}
 
-		if (theCommand.equals("addAlbumForm")) {
+		if ("addAlbumForm".equals(theCommand)) {
 			showAddForm(request, response);
 		}
 
-		if (theCommand.equals("confirmDelete")) {
-
+		if ("confirmDelete".equals(theCommand)) {
 			confirmDelete(request, response);
-
 		}
 	}
 
@@ -76,11 +72,7 @@ public class AlbumControllerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String theCommand = request.getParameter("command");
 
-		if (theCommand == null) {
-			theCommand = "listAlbums";
-		}
-
-		if (theCommand.equals("addAlbum")) {
+		if ("addAlbum".equals(theCommand)) {
 			try {
 				addAlbum(request, response);
 			} catch (SQLException e) {
@@ -88,7 +80,7 @@ public class AlbumControllerServlet extends HttpServlet {
 			}
 		}
 
-		if (theCommand.equals("updateAlbum")) {
+		if ("updateAlbum".equals(theCommand)) {
 			try {
 				updateAlbum(request, response);
 			} catch (SQLException e) {
@@ -96,7 +88,7 @@ public class AlbumControllerServlet extends HttpServlet {
 			}
 		}
 
-		if (theCommand.equals("deleteAlbum")) {
+		if ("deleteAlbum".equals(theCommand)) {
 			try {
 				deleteAlbum(request, response);
 			} catch (SQLException e) {
@@ -121,15 +113,14 @@ public class AlbumControllerServlet extends HttpServlet {
 		String albumName = request.getParameter("name");
 		String releaseDate = request.getParameter("releaseDate");
 
-		if (albumName == null || "".equals(albumName) || releaseDate == null || "".equals(releaseDate)) {
+		if (Validation.isNullOrEmpty(albumName) || Validation.isNullOrEmpty(releaseDate)) {
 			loadAlbumInfo(request, response);
+		} else {
+			Album modifiedAlbum = new Album(albumId, albumName, releaseDate, artistId);
+			AlbumDAO dao = new AlbumDAO();
+			dao.updateArtist(modifiedAlbum);
+			listAlbums(request, response);
 		}
-
-		Album modifiedAlbum = new Album(albumId, albumName, releaseDate, artistId);
-		AlbumDAO dao = new AlbumDAO();
-		dao.updateArtist(modifiedAlbum);
-		listAlbums(request, response);
-
 	}
 
 	private void addAlbum(HttpServletRequest request, HttpServletResponse response)
@@ -140,7 +131,7 @@ public class AlbumControllerServlet extends HttpServlet {
 
 		Integer artistId = Integer.parseInt(artistIds);
 
-		if (albumName == null || "".equals(albumName) || releaseDate == null || "".equals(releaseDate)) {
+		if (Validation.isNullOrEmpty(albumName) || Validation.isNullOrEmpty(releaseDate)) {
 			showAddForm(request, response);
 		}
 
@@ -180,7 +171,6 @@ public class AlbumControllerServlet extends HttpServlet {
 		request.setAttribute("artistId", artistId);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/update-album-form.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 	private void confirmDelete(HttpServletRequest request, HttpServletResponse response)
@@ -200,7 +190,6 @@ public class AlbumControllerServlet extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/add-album-form.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 }
