@@ -119,7 +119,7 @@ public class AlbumControllerServlet extends HttpServlet {
 		}
 	}
 	
-	private void searchAlbumByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void searchAlbumByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		String albumName = request.getParameter("albumName");
 		AlbumDAO dao = new AlbumDAO();
 		List <Album> albums = dao.searchForAlbum(albumName);

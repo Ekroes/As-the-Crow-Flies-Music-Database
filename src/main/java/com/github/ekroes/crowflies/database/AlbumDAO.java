@@ -11,6 +11,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import com.github.ekroes.crowflies.model.Album;
+import com.mysql.cj.api.x.Result;
 import com.mysql.cj.fabric.xmlrpc.base.Data;
 
 public class AlbumDAO {
@@ -152,9 +153,29 @@ public class AlbumDAO {
 
 	}
 
-	public List<Album> searchForAlbum(String albumName) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Album> searchForAlbum(String albumName) throws SQLException {
+		String sql = "SELECT * FROM album WHERE Album_Name LIKE ?";
+		List <Album> searchedAlbums = new ArrayList<Album>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet res = null;
+		DataSource dataSource = Driver.getDataSource();
+		try{
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + albumName +"%");
+			res = pstmt.executeQuery();
+			while(res.next()){
+				searchedAlbums.add(new Album(res.getInt("Album_Id"), res.getString("Album_Name"), 
+						res.getString("Year_Released"), res.getInt("Artist_Id")));
+			}
+			return searchedAlbums;
+		} finally {
+			Driver.closeConnection(conn);
+			Driver.closePreparedStatement(pstmt);
+			Driver.closeResultSet(res);
+		}
+		
 	}
 
 }
