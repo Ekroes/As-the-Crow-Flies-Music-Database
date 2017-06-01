@@ -66,13 +66,15 @@ public class LoginControllerServlet extends HttpServlet {
 		//String errorMessage = "";
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
-		int userId = Integer.parseInt(request.getParameter("ID"));
+		
 
 		LoginDAO loginDAO = new LoginDAO();
+		UserDAO userDAO = new UserDAO();
+		User currentUser = userDAO.getUserByUserName(userName);
 
 		if (loginDAO.loginAttempt(userName, password)) {
 
-			User validUser = loginDAO.getUser(userId);
+			User validUser = loginDAO.getUser(currentUser.getId());
 			HttpSession session = request.getSession();
 			session.setAttribute("theUser", validUser);
 

@@ -149,6 +149,36 @@ public class UserDAO {
 		}
 	}
 
+	public User getUserByUserName(String userName) throws SQLException {
+		User aUser = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet res = null;
+		
+		String sql = "SELECT * FROM useraccount WHERE UserName = ?";
+
+		DataSource dataSource = Driver.getDataSource();
+		try {
+			
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userName);
+			res = pstmt.executeQuery();
+			if (res.next()) {
+				aUser = new User(res.getInt("ID"), res.getString("UserName"), res.getString("FirstName"),
+						res.getString("LastName"), res.getString("Email"));
+			}
+			return aUser;
+		} finally {
+			Driver.closeConnection(conn);
+			Driver.closePreparedStatement(pstmt);
+			Driver.closeResultSet(res);
+		}
+
+	}
+		
+	
+
 	
 
 }

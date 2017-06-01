@@ -24,7 +24,7 @@
 		<description>
 		</description>
 		<display-name>LoginControllerServlet</display-name>
-		<servlet-name>LoginControllerServlet</servlet-name>
+		<servlet-name>/login</servlet-name>
 		<servlet-class>com.github.ekroes.crowflies.LoginControllerServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
