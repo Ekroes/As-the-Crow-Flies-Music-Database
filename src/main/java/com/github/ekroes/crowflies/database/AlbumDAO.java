@@ -152,4 +152,9 @@ public class AlbumDAO {
 
 	}
 
+	public List<Album> searchForAlbum(String albumName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

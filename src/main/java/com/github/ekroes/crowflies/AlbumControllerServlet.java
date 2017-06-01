@@ -62,6 +62,14 @@ public class AlbumControllerServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		if("searchAlbum".equals(theCommand)){
+			try{
+				searchAlbumByName(request,response);
+			} catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
 
 		if ("addAlbumForm".equals(theCommand)) {
 			showAddForm(request, response);
@@ -73,6 +81,10 @@ public class AlbumControllerServlet extends HttpServlet {
 	}
 
 	
+
+	
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -105,6 +117,16 @@ public class AlbumControllerServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void searchAlbumByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String albumName = request.getParameter("albumName");
+		AlbumDAO dao = new AlbumDAO();
+		List <Album> albums = dao.searchForAlbum(albumName);
+		request.setAttribute("searchResults", albums);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/album-search-results");
+		dispatcher.forward(request, response);
+		
 	}
 	
 	private void listAlbumsAfterSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
