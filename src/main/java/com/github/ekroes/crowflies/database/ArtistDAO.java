@@ -191,4 +191,38 @@ public class ArtistDAO {
 		}
 	}
 
+	public List<Artist> searchForArtist(String artistName) throws SQLException {
+		
+		String sql = "SELECT * FROM artist WHERE Artist_Name LIKE ? ORDER BY Artist_Id";
+		
+		List<Artist> artists = new ArrayList<Artist>();
+		DataSource datasource = Driver.getDataSource();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet res = null;
+		
+		try{
+			conn = datasource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, artistName);
+			res = pstmt.executeQuery();
+			
+			while(res.next()){
+				artists.add(new Artist(res.getInt("Artist_Id"), res.getString("Artist_Name"), 
+						res.getString("Start_Year_Active"), res.getString("End_Year_Active")));
+			}
+			return artists;
+		} finally{
+			Driver.closeConnection(conn);
+			Driver.closePreparedStatement(pstmt);
+			Driver.closeResultSet(res);
+		}
+
+		
+
+		
+		
+	}
+
 }

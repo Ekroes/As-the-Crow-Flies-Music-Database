@@ -54,6 +54,14 @@ public class AlbumControllerServlet extends HttpServlet {
 			}
 
 		}
+		
+		if("listAlbumsAfterSearch".equals(theCommand)){
+			try{
+				listAlbumsAfterSearch(request,response);
+			} catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
 
 		if ("addAlbumForm".equals(theCommand)) {
 			showAddForm(request, response);
@@ -63,6 +71,8 @@ public class AlbumControllerServlet extends HttpServlet {
 			confirmDelete(request, response);
 		}
 	}
+
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -95,6 +105,25 @@ public class AlbumControllerServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void listAlbumsAfterSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		String artistId = request.getParameter("Artist_ID");
+
+		AlbumDAO dao = new AlbumDAO();
+		ArtistDAO artDAO = new ArtistDAO();
+		List<Album> albums = dao.listAlbums(artistId);
+		Artist artistName = artDAO.getArtistName(artistId);
+
+		request.setAttribute("artistId", artistId);
+
+		request.setAttribute("artistName", artistName);
+
+		request.setAttribute("listAlbums", albums);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/searched-album-list.jsp");
+		dispatcher.forward(request, response);
+
+		
 	}
 
 	private void deleteAlbum(HttpServletRequest request, HttpServletResponse response)

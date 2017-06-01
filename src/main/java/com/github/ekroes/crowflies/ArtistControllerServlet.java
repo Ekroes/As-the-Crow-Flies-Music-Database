@@ -22,8 +22,6 @@ import util.Validation;
 public class ArtistControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -47,6 +45,14 @@ public class ArtistControllerServlet extends HttpServlet {
 		if ("loadArtist".equals(theCommand)) {
 			try {
 				loadArtistInfo(request, response);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if ("searchArtist".equals(theCommand)) {
+			try {
+				searchArtistByName(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -95,6 +101,19 @@ public class ArtistControllerServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	private void searchArtistByName(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+
+		String artistName = request.getParameter("artistName");
+		ArtistDAO dao = new ArtistDAO();
+		
+		List<Artist> artists = dao.searchForArtist(artistName);
+		request.setAttribute("searchResults", artists);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/artist-search-results.jsp");
+		dispatcher.forward(request, response);
+		
+
 	}
 
 	private void deleteArtist(HttpServletRequest request, HttpServletResponse response)

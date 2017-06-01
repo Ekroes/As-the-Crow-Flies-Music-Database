@@ -25,7 +25,6 @@ import com.github.ekroes.crowflies.model.User;
 public class UserControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
