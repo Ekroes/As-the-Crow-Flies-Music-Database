@@ -78,7 +78,7 @@ public class LoginControllerServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("theUser", validUser);
 
-			response.sendRedirect("/artist");
+			response.sendRedirect("/crowflies/artist?command=artistList");
 			
 //		}else {
 //			try{

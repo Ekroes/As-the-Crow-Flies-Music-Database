@@ -30,14 +30,23 @@
 								<td><input type="text" name="artistName" /></td>
 							</tr>
 							<tr>
-								<td colspan=2><input type="submit" value="Search"></td></tr>
+								<td colspan=2><input type="submit" value="Search"
+									class="search-artist-button"></td>
+							</tr>
 						</tbody>
 					</table>
 				</form>
-				<form>
-					<br> <br> <br> <br> Search by Album:<br> <input
-						type="text" name="albumname"> <br> <br> <input
-						type="submit" value="Search">
+				<form action="/crowflies/album" method="GET">
+					<input type="hidden" name="command" value="searchAlbum" />
+					<table>
+						<tbody>
+							<tr>
+								<td><label> Search by Album:</label></td>
+								<td><input type="text" name="albumName"> </td></tr>
+									<tr>
+									<td colspan=2> <input type="submit" value="Search" class = "search-album-button"></td></tr>
+						</tbody>
+					</table>
 				</form>
 			</div>
 

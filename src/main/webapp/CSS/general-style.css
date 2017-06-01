@@ -23,31 +23,58 @@ tr {
 	text-align: center;
 }
 
-tr:nth-child(even){background: #FFFFFF}
-tr:nth-child(odd){background: #A9AFBA}
-
-#wrapper{width: 100%; margin-top: 0px}
-#header{width: 70%; background: #2F38B5; margin-top: 0px; padding: 15px;}
-#header h2{width: 100%; margin: auto; color: #FFFFFF;}
-#container{width: 100%; margin:auto;}
-#container h3 {color: #000}
-#container #content {margin-top: 20px;} 
-
-.add-user-button{
-	border: 1px solid #666;
-	border-radius: 2px;
-	padding: 5px;
-	font-size:15px;
-	font-weight: bold;
-	width: 170px;
-	padding: 5px 20px;
-	
-	margin-bottom: 20px;
-	background: #EFEFEF;
-	
+tr:nth-child(even) {
+	background: #FFFFFF
 }
 
-.add-artist-button{
+tr:nth-child(odd) {
+	background: #A9AFBA
+}
+
+#wrapper {
+	width: 100%;
+	margin-top: 0px
+}
+
+#header {
+	width: 70%;
+	background: #2F38B5;
+	margin-top: 0px;
+	padding: 15px;
+}
+
+#header h2 {
+	width: 100%;
+	margin: auto;
+	color: #FFFFFF;
+}
+
+#container {
+	width: 100%;
+	margin: auto;
+}
+
+#container h3 {
+	color: #000
+}
+
+#container #content {
+	margin-top: 20px;
+}
+
+.add-user-button {
+	border: 1px solid #666;
+	border-radius: 6px;
+	padding: 5px;
+	font-size: 15px;
+	font-weight: bold;
+	width: 190px;
+	padding: 5px 20px;
+	margin-bottom: 20px;
+	background: #EFEFEF;
+}
+
+.add-artist-button {
 	border: 1px solid #666;
 	border-radius: 6px;
 	padding: 5px;
@@ -55,21 +82,38 @@ tr:nth-child(odd){background: #A9AFBA}
 	font-weight: bold;
 	width: 170px;
 	padding: 5px 20px;
-	
 	margin-bottom: 20px;
 	background: #EFEFEF;
 }
 
-.add-album-button{
+.add-album-button {
 	border: 1px solid #666;
 	border-radius: 6px;
 	padding: 5px;
 	font-size: 15px;
 	font-weight: bold;
 	width: 150px;
-	
-	
 	margin-bottom: 20px;
 	background: #EFEFEF;
-	
+}
+
+.search-artist-button {
+	border: 1px solid #666;
+	border-radius: 6px;
+	padding: 5px;
+	font-size: 15px;
+	font-weight: bold;
+	width: 170px; margin-bottom : 20px;
+	background: #EFEFEF;
+	margin-bottom: 20px;
+}
+
+.search-album-button{
+	border: 1px solid #666;
+	border-radius: 6px;
+	padding: 5px;
+	font-size: 15px;
+	font-weight: bold;
+	width: 170px; margin-bottom : 20px;
+	background: #EFEFEF;
 }

@@ -17,6 +17,10 @@
 		<servlet-name>UserControllerServlet</servlet-name>
 		<servlet-class>com.github.ekroes.crowflies.UserControllerServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LoginControllerServlet</servlet-name>
+		<servlet-class>com.github.ekroes.crowflies.LoginControllerServlet</servlet-class>
+	</servlet>
 
 
 
