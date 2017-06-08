@@ -19,6 +19,8 @@ import com.github.ekroes.crowflies.database.Driver;
 import com.github.ekroes.crowflies.database.UserDAO;
 import com.github.ekroes.crowflies.model.User;
 
+import util.Validation;
+
 /**
  * Servlet implementation class UserControllerServlet
  */
@@ -160,8 +162,8 @@ public class UserControllerServlet extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 		String email = request.getParameter("email");
 		
-		if(userName == null || "".equals(userName) || firstName == null || "".equals(firstName) ||
-				lastName == null || "".equals(lastName) || email == null || "".equals(email)){
+		if(Validation.isNullOrEmpty(userName) || Validation.isNullOrEmpty(firstName) ||
+				Validation.isNullOrEmpty(lastName) || Validation.isNullOrEmpty(email)){
 			loadUserInfo(request, response);
 		}
 
@@ -202,9 +204,9 @@ public class UserControllerServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		if(userName == null || "".equals(userName) || firstName == null || "".equals(firstName) ||
-				lastName == null || "".equals(lastName) || email == null || "".equals(email) ||
-				password == null || "".equals(password)){
+		if(Validation.isNullOrEmpty(userName) || Validation.isNullOrEmpty(firstName) ||
+				Validation.isNullOrEmpty(lastName) || Validation.isNullOrEmpty(email) ||
+				Validation.isNullOrEmpty(password)){
 			showAddForm(request, response);
 		}
 

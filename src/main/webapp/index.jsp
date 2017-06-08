@@ -36,7 +36,7 @@
 						</tbody>
 					</table>
 				</form>
-				<form action="/crowflies/album" method="GET">
+			<!--  	<form action="/crowflies/album" method="GET">
 					<input type="hidden" name="command" value="searchAlbum" />
 					<table>
 						<tbody>
@@ -47,7 +47,7 @@
 									<td colspan=2> <input type="submit" value="Search" class = "search-album-button"></td></tr>
 						</tbody>
 					</table>
-				</form>
+				</form>-->
 			</div>
 
 			<a href="/crowflies/users?command=logIn">Log In</a> <a

@@ -19,8 +19,7 @@
 		
 		<form action = "/crowflies/login" method = "POST">
 			<input type = "hidden" name = "command" value = "validateLogIn"/>
-			<input type = "hidden" name = "userName" value = "${userName}"/>
-			<input type = "hidden" name ="password" value = "${password}"/>
+			
 		
 		
 			<table>
@@ -35,7 +34,7 @@
 				</tr>
 				<tr>
 				<td><label></label></td>
-				<td><input type = "submit" value = "Enter" class = "save"/>
+				<td><input type = "submit" value = "Submit" class = "save"/>
 				</tr>
 		
 			</tbody>

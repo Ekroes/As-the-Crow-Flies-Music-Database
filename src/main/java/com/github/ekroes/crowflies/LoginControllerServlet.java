@@ -1,6 +1,7 @@
 package com.github.ekroes.crowflies;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -66,8 +67,8 @@ public class LoginControllerServlet extends HttpServlet {
 		//String errorMessage = "";
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
-		
-
+		System.out.println(userName);
+		System.out.println(password);
 		LoginDAO loginDAO = new LoginDAO();
 		UserDAO userDAO = new UserDAO();
 		User currentUser = userDAO.getUserByUserName(userName);
@@ -77,7 +78,6 @@ public class LoginControllerServlet extends HttpServlet {
 			User validUser = loginDAO.getUser(currentUser.getId());
 			HttpSession session = request.getSession();
 			session.setAttribute("theUser", validUser);
-
 			response.sendRedirect("/crowflies/artist?command=artistList");
 			
 //		}else {
