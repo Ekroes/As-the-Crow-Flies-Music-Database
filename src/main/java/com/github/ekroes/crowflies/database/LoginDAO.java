@@ -62,8 +62,9 @@ public class LoginDAO {
 				String lastName = res.getString("LastName");
 				String password = res.getString("Login");
 				String email = res.getString("Email");
+				String role = res.getString("Role");
 				
-				theUser = new User(id, userName, firstName, lastName, password, email);
+				theUser = new User(id, userName, firstName, lastName, password, email, role);
 			}
 			
 			else{

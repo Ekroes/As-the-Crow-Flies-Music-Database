@@ -1,7 +1,6 @@
 package com.github.ekroes.crowflies;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.github.ekroes.crowflies.database.ArtistDAO;
 import com.github.ekroes.crowflies.model.Artist;
+import com.github.ekroes.crowflies.model.User;
 
 import util.Validation;
 
@@ -161,6 +161,7 @@ public class ArtistControllerServlet extends HttpServlet {
 
 	private void listArtists(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
+		User validUser = (User) request.getSession().getAttribute("theUser");
 		ArtistDAO dao = new ArtistDAO();
 		List<Artist> artists = dao.listArtists();
 

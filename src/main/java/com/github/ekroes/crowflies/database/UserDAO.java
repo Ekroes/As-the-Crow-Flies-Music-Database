@@ -32,7 +32,7 @@ public class UserDAO {
 
 			while (res.next()) {
 				users.add(new User(res.getInt("ID"), res.getString("UserName"), res.getString("FirstName"),
-						res.getString("LastName"), res.getString("Email")));
+						res.getString("LastName"), res.getString("Email"), res.getString("Role")));
 
 			}
 			return users;
@@ -91,7 +91,7 @@ public class UserDAO {
 			res = pstmt.executeQuery();
 			if (res.next()) {
 				aUser = new User(res.getInt("ID"), res.getString("UserName"), res.getString("FirstName"),
-						res.getString("LastName"), res.getString("Email"));
+						res.getString("LastName"), res.getString("Email"), res.getString("Role"));
 			}
 			return aUser;
 		} finally {
@@ -166,7 +166,7 @@ public class UserDAO {
 			res = pstmt.executeQuery();
 			if (res.next()) {
 				aUser = new User(res.getInt("ID"), res.getString("UserName"), res.getString("FirstName"),
-						res.getString("LastName"), res.getString("Email"));
+						res.getString("LastName"), res.getString("Email"), res.getString("Role"));
 			}
 			return aUser;
 		} finally {

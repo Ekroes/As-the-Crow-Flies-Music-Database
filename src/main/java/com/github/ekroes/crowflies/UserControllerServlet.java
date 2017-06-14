@@ -161,13 +161,14 @@ public class UserControllerServlet extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String email = request.getParameter("email");
+		String role = request.getParameter("role");
 		
 		if(Validation.isNullOrEmpty(userName) || Validation.isNullOrEmpty(firstName) ||
-				Validation.isNullOrEmpty(lastName) || Validation.isNullOrEmpty(email)){
+				Validation.isNullOrEmpty(lastName) || Validation.isNullOrEmpty(email) || Validation.isNullOrEmpty(role)){
 			loadUserInfo(request, response);
 		}
 
-		User theUser = new User(id, userName, firstName, lastName, email);
+		User theUser = new User(id, userName, firstName, lastName, email, role);
 		UserDAO dao = new UserDAO();
 		dao.updateUser(theUser);
 		listUsers(request, response);

@@ -8,6 +8,7 @@ public class User {
 	private String lastName = "";
 	private String password = "";
 	private String email = "";
+	private String role = "";
 
 	public User(String userName, String password) {
 
@@ -15,13 +16,14 @@ public class User {
 		this.password = password;
 	}
 
-	public User(Integer id, String userName, String firstName, String lastName, String email) {
+	public User(Integer id, String userName, String firstName, String lastName, String email, String role) {
 		super();
 		this.id = id;
 		this.userName = userName;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.role = role;
 	}
 
 	public User(String userName, String firstName, String lastName, String password, String email) {
@@ -33,7 +35,7 @@ public class User {
 		this.email = email;
 	}
 
-	public User(Integer id, String userName, String firstName, String lastName, String password, String email) {
+	public User(Integer id, String userName, String firstName, String lastName, String password, String email, String role) {
 
 		this.id = id;
 		this.userName = userName;
@@ -41,6 +43,7 @@ public class User {
 		this.lastName = lastName;
 		this.password = password;
 		this.email = email;
+		this.role = role;
 	}
 
 	public Integer getId() {
@@ -92,4 +95,14 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	
 }

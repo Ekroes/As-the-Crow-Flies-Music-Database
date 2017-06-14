@@ -70,6 +70,9 @@
 		</div>
 
 	</div>
+	<div style = "clear: both"></div>
+	<p>
+	<a href = "/crowflies/login?command=logout">Log Out</a>
 
 </body>
 </html>

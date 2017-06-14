@@ -67,8 +67,7 @@ public class LoginControllerServlet extends HttpServlet {
 		//String errorMessage = "";
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
-		System.out.println(userName);
-		System.out.println(password);
+		
 		LoginDAO loginDAO = new LoginDAO();
 		UserDAO userDAO = new UserDAO();
 		User currentUser = userDAO.getUserByUserName(userName);
@@ -96,8 +95,7 @@ public class LoginControllerServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/crowflies");
-		dispatcher.forward(request, response);
+		response.sendRedirect("/crowflies");
 
 	}
 
