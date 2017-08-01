@@ -166,6 +166,7 @@ public class ArtistControllerServlet extends HttpServlet {
 		List<Artist> artists = dao.listArtists();
 
 		request.setAttribute("artistList", artists);
+		request.setAttribute("userRole", validUser);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/list-artists.jsp");
 		dispatcher.forward(request, response);
 	}

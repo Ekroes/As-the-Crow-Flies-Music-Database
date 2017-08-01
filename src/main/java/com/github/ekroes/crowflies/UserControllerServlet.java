@@ -124,26 +124,7 @@ public class UserControllerServlet extends HttpServlet {
 
 	}
 
-//	private void signIn(HttpServletRequest request, HttpServletResponse response)
-//			throws SQLException, ServletException, IOException {
-//		UserDAO dao = new UserDAO();
-//		UserDAO signInDAO = new UserDAO();
-//		String userName = request.getParameter("userName");
-//		String password = request.getParameter("password");
-//
-//		dao.loginAttempt(userName, password);
-//
-//		boolean isSuccessful = signInDAO.loginAttempt(userName, password);
-//		if (isSuccessful) {
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/list-artists.jsp");
-//			dispatcher.forward(request, response);
-//
-//		} else {
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/login-form.jsp");
-//			dispatcher.forward(request, response);
-//		}
-//
-//	}
+
 
 	private void deleteUser(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {

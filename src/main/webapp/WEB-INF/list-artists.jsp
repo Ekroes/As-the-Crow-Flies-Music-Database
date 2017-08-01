@@ -44,7 +44,7 @@
 						<c:param name="Artist_ID" value="${tempArtist.getId()}" />
 					</c:url>
 					
-					<c:url var="tempLink" value="/artist">
+					<c:url var="updateLink" value="/artist">
 						<c:param name="command" value="loadArtist" />
 						<c:param name="Artist_ID" value="${tempArtist.getId()}" />
 					</c:url>
@@ -55,12 +55,14 @@
 					</c:url>
 
 					<tr>
-
+			
 						<td><a href ="${albumLink}">${tempArtist.name}</a></td>
 						<td>${tempArtist.start}</td>
 						<td>${tempArtist.end}</td>
-						<td><a href="${tempLink}">Update</a>| <a href="${deleteLink}">
+						
+						<td><a href="${updateLink}">Update</a>| <a href="${deleteLink}">
 								Delete</a></td>
+								
 					</tr>
 
 

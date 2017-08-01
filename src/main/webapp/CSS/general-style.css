@@ -66,7 +66,7 @@ tr:nth-child(odd) {
 	border: 1px solid #666;
 	border-radius: 6px;
 	padding: 5px;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: bold;
 	width: 190px;
 	padding: 5px 20px;
@@ -78,7 +78,7 @@ tr:nth-child(odd) {
 	border: 1px solid #666;
 	border-radius: 6px;
 	padding: 5px;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: bold;
 	width: 170px;
 	padding: 5px 20px;
@@ -90,7 +90,7 @@ tr:nth-child(odd) {
 	border: 1px solid #666;
 	border-radius: 6px;
 	padding: 5px;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: bold;
 	width: 150px;
 	margin-bottom: 20px;
@@ -101,7 +101,7 @@ tr:nth-child(odd) {
 	border: 1px solid #666;
 	border-radius: 6px;
 	padding: 5px;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: bold;
 	width: 170px; margin-bottom : 20px;
 	background: #EFEFEF;
@@ -112,7 +112,7 @@ tr:nth-child(odd) {
 	border: 1px solid #666;
 	border-radius: 6px;
 	padding: 5px;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: bold;
 	width: 170px; margin-bottom : 20px;
 	background: #EFEFEF;
